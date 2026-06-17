@@ -21,10 +21,10 @@ const createCleaningRequest = async (req, res) => {
 
     let listing = null;
 
-    if (listingId) {
+if (listingId) {
       listing = await prisma.listing.findUnique({
-        where: { id: listingId },
-      });
+       where: { id: listingId },
+       });
 
       if (!listing) {
         return res.status(404).json({

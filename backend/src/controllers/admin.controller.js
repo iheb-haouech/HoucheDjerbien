@@ -9,18 +9,17 @@ const createPromoCode = async (req, res) => {
       return res.status(400).json({ message: 'percentage must be between 0 and 100' });
     }
 
-    // generate a human-friendly code
     const raw = crypto.randomBytes(4).toString('hex').toUpperCase();
     const code = `PROMO-${raw}`;
 
-    const promo = await prisma.promoCode.create({
-      data: {
-        code,
-        percentage: Number(percentage),
-        expiresAt: expiresAt ? new Date(expiresAt) : null,
-        createdById: req.user?.id || null,
-      },
-    });
+const promo = await prisma.promoCode.create({
+       data: {
+         code,
+         percentage: Number(percentage),
+         expiresAt: expiresAt ? new Date(expiresAt) : null,
+         createdById: req.user?.id || null,
+       },
+     });
 
     return res.status(201).json({ message: 'Promo code created', promo });
   } catch (error) {
@@ -81,7 +80,6 @@ const updateSeason = async (req, res) => {
 const createManualBooking = async (req, res) => {
   try {
     const { listingId, checkIn, checkOut, guestName, source, extras, promoCode } = req.body;
-    // reuse basic checks from booking controller
     if (!listingId || !checkIn || !checkOut) {
       return res.status(400).json({ message: 'listingId, checkIn and checkOut are required' });
     }
@@ -92,14 +90,13 @@ const createManualBooking = async (req, res) => {
       return res.status(400).json({ message: 'Invalid dates' });
     }
 
-    // basic overlapping check
-    const overlapping = await prisma.booking.findFirst({
-      where: {
-        listingId,
-        checkIn: { lte: checkOutDate },
-        checkOut: { gte: checkInDate },
-      },
-    });
+const overlapping = await prisma.booking.findFirst({
+       where: {
+         listingId,
+         checkIn: { lte: checkOutDate },
+         checkOut: { gte: checkInDate },
+       },
+     });
     if (overlapping) {
       return res.status(400).json({ message: 'Overlapping booking exists' });
     }
@@ -136,7 +133,6 @@ const createManualBooking = async (req, res) => {
       }
     }
 
-    // length discounts
     let lengthDiscount = 0;
     if (nights >= 30) {
       lengthDiscount = 0.15 * totalPrice;
@@ -146,7 +142,6 @@ const createManualBooking = async (req, res) => {
       totalPrice = totalPrice - lengthDiscount;
     }
 
-    // promo
     let promoRecord = null;
     let promoDiscount = 0;
     if (promoCode) {
@@ -157,9 +152,9 @@ const createManualBooking = async (req, res) => {
       }
     }
 
-    const booking = await prisma.booking.create({
-      data: {
-        listingId,
+const booking = await prisma.booking.create({
+       data: {
+         listingId,
         userId: null,
         guestName: guestName || 'Manual guest',
         checkIn: checkInDate,
@@ -210,9 +205,9 @@ const updateBookingStatus = async (req, res) => {
       return res.status(400).json({ message: 'Invalid booking status' });
     }
 
-    const booking = await prisma.booking.update({
-      where: { id },
-      data: { status: normalized },
+const booking = await prisma.booking.update({
+       where: { id },
+       data: { status: normalized },
       include: { listing: true, user: { select: { id: true, name: true, email: true, role: true } } },
     });
 

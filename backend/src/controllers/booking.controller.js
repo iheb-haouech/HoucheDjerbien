@@ -36,10 +36,10 @@ const createBooking = async (req, res) => {
       });
     }
 
-    const listing = await prisma.listing.findUnique({
-      where: { id: listingId },
-      include: { seasons: true },
-    });
+const listing = await prisma.listing.findUnique({
+       where: { id: listingId },
+       include: { seasons: true },
+     });
 
     if (!listing) {
       return res.status(404).json({
@@ -47,13 +47,13 @@ const createBooking = async (req, res) => {
       });
     }
 
-    const overlappingBooking = await prisma.booking.findFirst({
-      where: {
-        listingId,
-        checkIn: { lte: checkOutDate },
-        checkOut: { gte: checkInDate },
-      },
-    });
+const overlappingBooking = await prisma.booking.findFirst({
+       where: {
+         listingId,
+         checkIn: { lte: checkOutDate },
+         checkOut: { gte: checkInDate },
+       },
+     });
 
     if (overlappingBooking) {
       return res.status(400).json({
@@ -126,7 +126,7 @@ const createBooking = async (req, res) => {
     const booking = await prisma.booking.create({
       data: {
         listingId,
-        userId: req.user?.id,
+        userId: req.user?.id || null,
         guestName: guestName || req.user?.name || 'Guest',
         checkIn: checkInDate,
         checkOut: checkOutDate,

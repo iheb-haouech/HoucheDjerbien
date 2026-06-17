@@ -58,10 +58,8 @@ export default function SignUp() {
     }
   };
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
-
 const handleSocialRegister = (provider) => {
-    window.location.href = `${API_BASE}/api/auth/${provider}`;
+    window.location.href = `/api/auth/${provider}`;
   };
 
   return (
@@ -76,18 +74,10 @@ const handleSocialRegister = (provider) => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid gap-3 md:grid-cols-2">
-            <button type="button" onClick={() => handleSocialRegister('google')} className="rounded-2xl border border-sand-300 bg-white px-4 py-3 text-sm font-bold text-navy-800 shadow-sm hover:border-primary-300">
-              Register with Google
-            </button>
-            <button type="button" onClick={() => handleSocialRegister('facebook')} className="rounded-2xl border border-sand-300 bg-white px-4 py-3 text-sm font-bold text-navy-800 shadow-sm hover:border-primary-300">
-              Register with Facebook
-            </button>
-          </div>
+<form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-navy-400">
             <span className="h-px flex-1 bg-sand-200" />
-            or
+            Create account
             <span className="h-px flex-1 bg-sand-200" />
           </div>
 

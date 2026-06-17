@@ -29,8 +29,10 @@ export const registerUser = async ({
   return data;
 };
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+
 export const requestPasswordReset = async (email) => {
-  const response = await fetch('http://localhost:5000/auth/forgot-password', {
+  const response = await fetch(`${API_BASE}/auth/forgot-password`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -48,7 +50,7 @@ export const requestPasswordReset = async (email) => {
 };
 
 export const resetPassword = async (token, password) => {
-  const response = await fetch('http://localhost:5000/auth/reset-password', {
+  const response = await fetch(`${API_BASE}/auth/reset-password`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

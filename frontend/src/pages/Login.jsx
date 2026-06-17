@@ -28,8 +28,10 @@ export default function Login() {
     }
   };
 
-  const handleSocialLogin = (provider) => {
-    window.location.href = `http://localhost:5000/api/auth/${provider}`;
+  const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+
+const handleSocialLogin = (provider) => {
+    window.location.href = `${API_BASE}/api/auth/${provider}`;
   };
 
   return (

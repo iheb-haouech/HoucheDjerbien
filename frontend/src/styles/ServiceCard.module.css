@@ -1,0 +1,5 @@
+.card{background:#fff;border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 24px rgba(21,32,43,0.06)}
+.icon{font-size:28px}
+.body h4{margin:0}
+.body p{margin:4px 0 0;color:#5b6b73}
+.cta{margin-left:auto;background:#0b76d1;color:#fff;border:0;padding:8px 12px;border-radius:10px}

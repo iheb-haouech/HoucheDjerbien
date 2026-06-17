@@ -1,0 +1,18 @@
+.container{padding:20px}
+
+.hero{position:relative;height:220px;border-radius:12px;overflow:hidden;background-image:url('https://images.unsplash.com/photo-1501973801540-537f08ccae7b?auto=format&fit=crop&w=1400&q=60');background-size:cover;background-position:center;margin-bottom:18px;display:flex;align-items:center}
+.heroOverlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.06))}
+.heroContent{position:relative;color:#fff;padding:22px}
+.heroContent h1{margin:0;font-size:20px}
+.heroContent p{margin-top:6px;opacity:0.95}
+
+.servicesGrid{display:grid;grid-template-columns:1fr;gap:12px}
+.serviceCard{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(21,32,43,0.06);border:1px solid rgba(200,195,190,0.4);text-align:left}
+.icon{font-size:28px}
+.serviceCard h3{margin:0}
+.serviceCard p{margin:0;color:#667}
+.footerNote{margin-top:16px;text-align:center;color:#7b7b7b}
+
+@media(min-width:720px){
+  .servicesGrid{grid-template-columns:repeat(3,1fr)}
+}

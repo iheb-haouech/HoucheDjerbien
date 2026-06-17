@@ -1,0 +1,17 @@
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  border-top: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    position: static;
+    border-top: none;
+    border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+    box-shadow: none;
+  }
+}

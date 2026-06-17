@@ -1,0 +1,13 @@
+.appRoot {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #fffaf7;
+  color: #213547;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.content {
+  flex: 1 0 auto;
+  padding-bottom: 80px; /* reserve space for bottom nav */
+}

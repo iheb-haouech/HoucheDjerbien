@@ -1,0 +1,37 @@
+.sliderRoot{display:flex;align-items:center;gap:10px}
+.navBtn{
+  background:#fff;
+  border:0;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.06);
+  font-size:20px;
+  color:#374151;
+  transition:background-color 0.2s ease,box-shadow 0.2s ease
+}
+.navBtn:hover{
+  background:#f3f4f6;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1)
+}
+.slideArea{flex:1;display:flex;flex-direction:column;align-items:center}
+.dots{margin-top:12px;display:flex;gap:8px}
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:8px;
+  background:#d1d5db;
+  border:0;
+  transition:background-color 0.2s ease
+}
+.dot:hover{background:#9ca3af}
+.dotActive{
+  width:14px;
+  height:8px;
+  border-radius:8px;
+  background:#2563eb;
+  border:0
+}
+@media(min-width:900px){
+  .slideArea{max-width:900px}
+}

@@ -1,0 +1,44 @@
+
+> djerba-houches@0.1.0 dev
+> vite --host 127.0.0.1 --port 5175
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m1171[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5175[22m/[39m
+[2m17:40:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/SearchBar.jsx, /src/index.css[22m
+[2m17:40:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Hero.jsx, /src/index.css[22m
+[2m17:40:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/SearchBar.jsx, /src/index.css[22m
+[2m17:40:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Home.jsx, /src/index.css[22m
+[2m17:42:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Footer.jsx, /src/index.css[22m
+[2m17:42:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m18:17:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/SearchBar.jsx, /src/index.css[22m
+[2m18:17:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Hero.jsx, /src/index.css[22m
+[2m18:17:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m18:17:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/SearchBar.jsx, /src/index.css[22m
+[2m18:22:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Home.jsx, /src/index.css[22m
+[2m18:28:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/contexts/AuthContext.jsx, /src/pages/ResetPassword.jsx, /src/pages/ForgotPassword.jsx, /src/pages/Reservations.jsx, /src/pages/Rentals.jsx, /src/pages/Construction.jsx, /src/pages/Cleaning.jsx[22m
+[2m18:32:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminBookings.jsx, /src/index.css[22m
+[2m18:34:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/AdminLayout.jsx, /src/index.css[22m
+[2m18:34:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/AdminNavbar.jsx, /src/index.css[22m
+[2m18:34:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css[22m
+[2m18:34:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/AdminSidebar.jsx, /src/index.css[22m
+[2m18:40:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminBookings.jsx, /src/index.css[22m
+[2m18:49:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminCleaning.jsx, /src/index.css[22m
+[2m18:49:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminConstruction.jsx, /src/index.css[22m
+[2m18:51:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/index.css, /src/pages/Rentals.jsx[22m
+[2m18:51:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminRentals.jsx, /src/index.css[22m
+[2m18:54:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminRentals.jsx, /src/index.css[22m
+[2m19:21:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminRentals.jsx, /src/index.css[22m
+[2m19:21:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminBookings.jsx, /src/index.css[22m
+[2m19:23:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminCleaning.jsx, /src/index.css[22m
+[2m19:26:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/DashboardOverview.jsx, /src/index.css[22m
+[2m19:29:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/index.css[22m
+[2m19:32:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Login.jsx, /src/index.css[22m
+[2m19:32:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/SignUp.jsx, /src/index.css[22m
+[2m19:34:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminConstruction.jsx, /src/index.css[22m
+[2m19:34:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/DataTable.jsx, /src/index.css[22m
+[2m19:34:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/admin/AdminConstruction.jsx, /src/index.css[22m
+[2m20:08:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Rentals.jsx, /src/index.css[22m
+[2m20:08:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Rentals.jsx, /src/index.css[22m
+[2m20:09:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/Rentals.jsx, /src/index.css[22m

@@ -1,0 +1,4 @@
+.cleaningRoot{padding:18px}
+.header h2{margin:0}
+.cardsGrid{display:grid;gap:12px}
+@media(min-width:700px){.cardsGrid{grid-template-columns:repeat(3,1fr)}}

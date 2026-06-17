@@ -1,0 +1,212 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  USER
+  ADMIN
+  HOST
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
+
+enum RequestStatus {
+  PENDING
+  ASSIGNED
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(USER)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  listings             Listing[]
+  bookings             Booking[]
+  cleaningRequests     CleaningRequest[]
+  constructionRequests ConstructionRequest[]
+  consultationRequests ConsultationRequest[]
+  passwordResetTokens  PasswordResetToken[]
+
+  @@map("users")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime  @default(now())
+}
+
+model Listing {
+  id               String            @id @default(cuid())
+  title            String
+  description      String?
+  price            Float
+  rating           Float?
+  images           String[]
+  amenities        String[]
+  location         String
+  hostName         String?
+  hostAvatar       String?
+  coordinates      Json?
+  availability     Json?
+  ownerId          String?
+  cleaningRequests CleaningRequest[]
+
+  seasons Season[]
+
+  owner    User?     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("listings")
+}
+
+model Season {
+  id        String   @id @default(cuid())
+  name      String
+  startDate DateTime
+  endDate   DateTime
+  price     Float
+  discountPercentage Int?
+  listingId String
+
+  listing   Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("seasons")
+}
+
+model PromoCode {
+  id          String   @id @default(cuid())
+  code        String   @unique
+  percentage  Int
+  expiresAt   DateTime?
+  active      Boolean  @default(true)
+  createdById String?
+
+  createdBy User? @relation(fields: [createdById], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+
+  @@map("promo_codes")
+}
+
+model Booking {
+  id         String        @id @default(cuid())
+  listingId  String
+  userId     String?
+  guestName  String?
+  checkIn    DateTime?
+  checkOut   DateTime?
+  nights     Int?
+  status     BookingStatus @default(PENDING)
+  totalPrice Float?
+
+  extras     Json?
+  promoCodeId String?
+  discount    Float?
+  finalPrice  Float?
+
+  listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  user    User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("bookings")
+}
+
+model CleaningRequest {
+  id          String        @id @default(cuid())
+  userId      String?
+  listingId   String?
+  clientName  String?
+  phone       String?
+  requestType String?
+  frequency   String?
+  team        String?
+  date        DateTime?
+  notes       String?
+  status      RequestStatus @default(PENDING)
+
+  user    User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing Listing? @relation(fields: [listingId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("cleaning_requests")
+}
+
+model ConstructionRequest {
+  id          String        @id @default(cuid())
+  userId      String?
+  name        String?
+  phone       String?
+  email       String?
+  requestType String?
+  date        DateTime?
+  description String
+  status      RequestStatus @default(PENDING)
+
+  user User? @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("construction_requests")
+}
+
+model ConsultationRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String
+  type        String
+  date        DateTime
+  description String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("consultation_requests")
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  features    String[]
+  images      String[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("services")
+}
